@@ -42,7 +42,7 @@ export default function ContentForm() {
       } else {
         await API.post('/contents', form);
       }
-      router.push('/admin');
+      router.push('/admin/contents');
     } catch (error) {
       if (!error.response) {
         console.error('Network error:', error);
