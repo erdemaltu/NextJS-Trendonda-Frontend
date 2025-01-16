@@ -2,37 +2,46 @@
 
 import React from 'react'
 import Link from 'next/link'
+import Head from "next/head";
 import { usePathname, useRouter } from 'next/navigation'
+import { Pacifico } from "next/font/google";
+
+const pacifiko = Pacifico({subsets: ["cyrillic"], weight: "400"});
 
 const Header = () => {
     const patname = usePathname();
     const router = useRouter();
   return (
-    <div className='flex justify-between shadow-lg mb-1 items-center'>
-        <div className='ml-5'>
-            logo
+    <>
+        <Head>
+            <title>Trendonda</title>
+            <meta name="description" content="Discover and explore trending topics worldwide." />
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <link rel="icon" href="/favicon.ico" />
+        </Head>
+        <header className="bg-mycolor p-4">
+          <div className="container mx-auto flex flex-row justify-between items-center">
+            <div className={`text-white text-lg md:text-xl font-semibold ${pacifiko.className}`}>
+            Trendonda
+            </div>
+
+            <div className="hidden md:block md:w-1/3 lg:w-1/2">
+              <input type="text" className="w-full focus:outline-none pl-2"/>
+            </div>
+            
+            <div className="text-white text-lg font-semibold">
+              login
+            </div>
+          </div>
+        </header>
+        <div className="flex items-center p-3 space-x-8 justify-center bg-mycolor2 border-b-2 border-b-mycolor4 shadow-2xl">
+          <Link href="/" className={`text-white hover:text-black ${patname === "/"?"underline":""}`}>Anasafya</Link>
+          <Link href="/category" className={`text-white hover:text-black ${patname === "/category"?"underline":""}`}>Kategori</Link>
+          <Link href="/blog" className={`text-white hover:text-black ${patname === "/blog"?"underline":""}`}>Blog</Link>
+          <Link href="/about" className={`text-white hover:text-black ${patname === "/about"?"underline":""}`}>Hakkımızda</Link>
+          <Link href="/contact" className={`text-white hover:text-black ${patname === "/contact"?"underline":""}`}>İletişim</Link>
         </div>
-        <div className='flex items-center gap-9 m-5'>
-            <p>
-                <Link className={`p-3 border border-red-700 rounded-lg ${patname === "/"?"underline":""}`} href="/">Home</Link>
-            </p>
-            <p>
-                <Link className={`p-3 border border-red-700 rounded-lg ${patname === "/category"?"underline":""}`} href="/category">Kategory</Link>
-            </p>
-            <p>
-                <Link className={`p-3 border border-red-700 rounded-lg ${patname === "/blog"?"underline":""}`} href="/blog">Blog</Link>
-            </p>
-            <p>
-                <Link className={`p-3 border border-red-700 rounded-lg ${patname === "/about"?"underline":""}`} href="/about">About</Link>
-            </p>
-            <p>
-                <Link className={`p-3 border border-red-700 rounded-lg ${patname === "/contact"?"underline":""}`} href="/contact">Contact</Link>
-            </p>
-            <button className={`p-3 bg-cyan-600 hover:bg-cyan-800 text-white rounded-lg shadow-lg transition`} type='button' onClick={()=> router.push('/auth/login')}>
-                Login
-            </button>
-        </div>
-    </div>
+    </>
   )
 }
 

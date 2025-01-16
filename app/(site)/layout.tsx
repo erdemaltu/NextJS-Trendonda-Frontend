@@ -3,7 +3,6 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "../globals.css";
 import Header from "@/components/site/Header";
 import Footer from "@/components/site/Footer";
-import Hero from "@/components/Hero";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,8 +30,9 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Header/>
-        <Hero image="/bg_image.jpg" image2="/bg_image.jpg" title="lorem ipsum dolor" description="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure veritatis non porro tempora excepturi alias!"/>
+        <div className="min-h-screen">
         {children}
+        </div>
         <Footer/>
       </body>
     </html>
