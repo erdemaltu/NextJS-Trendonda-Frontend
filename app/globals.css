@@ -17,5 +17,7 @@ body {
 }
 
 .bgHeader{
-  @apply bg-mycolor-300 hover:bg-mycolor-300 dark:text-black dark:bg-mycolor-300 dark:hover:bg-mycolor-300 !important;
+  @apply relative hover:text-blue-600 after:content-[''] 
+  after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] 
+  after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full !important;
 }

@@ -13,11 +13,14 @@ import {
 } from "@/components/ui/navigation-menu"
 import Link from 'next/link'
 import { components } from '@/constans'
+import { usePathname } from 'next/navigation'
 
 const NavMenu = () => {
+
+    const pathname = usePathname();
   return (
     <div className="hidden md:block">
-        <div className='flex justify-center items-center p-2 bg-mycolor-300'>
+        <div className='flex justify-center items-center p-2'>
             <NavigationMenu>
                 <NavigationMenuList>
                     <NavigationMenuItem>
