@@ -125,15 +125,18 @@ export default function HomePage() {
               {Array.from({ length: 10 }, (_, itemIdx) => (
                 <div
                   key={itemIdx}
-                  className="bg-gray-100 dark:bg-neutral-800 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
+                  className="flex bg-gray-100 dark:bg-neutral-800 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
                 >
                   <img
                     src={`/images/category_${itemIdx + 1}.jpg`}
                     alt={`${category} Content ${itemIdx + 1}`}
-                    className="w-full h-32 object-cover"
+                    className="w-2/5 object-cover"
                   />
-                  <div className="p-4">
-                    <h4 className="text-lg font-bold">{category} Content {itemIdx + 1}</h4>
+                  <div className="p-4 w-3/5 flex flex-col justify-between">
+                    <h4 className="text-lg font-bold mb-2">{category} Content {itemIdx + 1}</h4>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    </p>
                   </div>
                 </div>
               ))}
@@ -163,5 +166,3 @@ export default function HomePage() {
     </div>
   );
 }
-
-
